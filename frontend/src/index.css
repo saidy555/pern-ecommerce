@@ -1,3 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --text: #12332a;
+  --background: #e0e0e0;
+  --primary: #1c8c74;
+  --accent: #8b7a07;
+  --font-size: 20px;
+}
+
+[data-theme="dark"] {
+  --text: #e0e0e0;
+  --background: #050f0d;
+  --primary: #1c8c74;
+  --accent: #a1953b;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size);
+  line-height: 1.4;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background-color: var(--background);
+}
+
+a {
+  color: var(--accent);
+}

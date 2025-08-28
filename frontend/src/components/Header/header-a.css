@@ -1,0 +1,44 @@
+.header-a {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  color: var(--text);
+}
+
+.header-a:hover,
+.header-a:focus {
+  color: var(--accent);
+}
+
+/* fade in */
+
+.header-a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: var(--accent);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.header-a:hover::after,
+.header-a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+/* Scale from center */
+.header-a::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.header-a:hover::after,
+.header-a:focus::after {
+  transform: scale(1);
+}

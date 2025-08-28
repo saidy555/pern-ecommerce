@@ -1,0 +1,20 @@
+.svg-bttns {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: var(--text);
+}
+
+.svg-bttns:focus .svg,
+.svg-bttns:hover .svg {
+  fill: var(--accent);
+}
