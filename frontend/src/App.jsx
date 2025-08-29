@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import MainLayout from "./layouts/MainLayout/MainLayout";
-import HomePage from "./routes/HomePage/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import ThemeProvider from "./context/ThemeProvider";
 
 function App() {
