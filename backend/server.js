@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
+import path from "path";
 import "dotenv/config.js";
 
 import productRoutes from "./routes/productRoutes.js";
@@ -12,11 +13,17 @@ const app = express();
 
 const PORT = process.env.PORT;
 
+const __dirname = path.resolve();
+
 app.use(express.json());
 
 app.use(cors());
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 app.use(morgan("dev"));
 
@@ -55,6 +62,14 @@ app.use(async (req, res, next) => {
 });
 
 app.use("/api/products", productRoutes);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+  app.get("/*splat", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  });
+}
 
 async function initDB() {
   try {
